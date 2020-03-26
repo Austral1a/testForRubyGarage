@@ -3,7 +3,7 @@ import React from 'react';
 import TodoHeader from './TodoHeader';
 import TodoCreateTask from './TodoCreateTask';
 
-const App = () => {
+const TodoApp = () => {
     return (
         <div className="todo">
             <TodoHeader />
@@ -12,4 +12,4 @@ const App = () => {
     );
 };
 
-export default App;
+export default TodoApp;
