@@ -7,15 +7,15 @@ export const loginWithGoogle = () => {
             let provider = new firebase.auth.GoogleAuthProvider();
             provider.addScope('email');
             firebase.auth().languageCode = 'ru';
-            firebase.auth().signInWithPopup(provider)
-            .then((res) => {
-                let user = res.user;
-                dispatch(loginWithGoogleSuccess(user));
-            })
-            .catch((error) => {
-                let errorMessage = error.message;
-                dispatch(loginWithGoogleFail(errorMessage));
-            });
+            return firebase.auth().signInWithPopup(provider)
+                .then((res) => {
+                    dispatch(loginWithGoogleSuccess({}));
+                })
+                .catch((error) => {
+                    let errorMessage = error.message;
+                    dispatch(loginWithGoogleFail(errorMessage));
+                });
+            
         } catch {
             dispatch(loginWithGoogleFail('Something bad happend.'));
         };

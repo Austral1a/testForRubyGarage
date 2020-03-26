@@ -1,15 +1,46 @@
 $btn-color: #F78DB8;
+@mixin hover {
+    transition: all 0.2s ease-in;
+    background-color: darken($btn-color, 12%);
+}
+@mixin active {
+    background-color: lighten($btn-color, 10%);
+    transition: all 0.2s ease-in;
+}
 .btn {
     background-color: $btn-color;
     border: 1px solid darken($btn-color, 3%);
     border-radius: 2px;
     transition: all 0.4s ease-out;
     &:hover {
-        transition: all 0.2s ease-in;
-        background-color: darken($btn-color, 12%);
+        @include hover;
     }
     &:active {
-        background-color: lighten($btn-color, 10%);
-        transition: all 0.2s ease-in;
+        @include active;
+    }
+}
+
+.btn-sign-in-with-google {
+    display: flex;
+    margin: 0 auto;
+    margin-top: 20vw;
+    width: 240px;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    border: 0;
+    border-radius: 20px;
+    transition: all 0.4s ease-out;
+    &:hover {
+        @include hover;
+    }
+    &:active {
+        @include active;
+    }
+    span {
+        padding-left: .8rem;
+        font-size: 1.7rem;
+        color: $btn-color;
     }
 }

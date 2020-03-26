@@ -17,13 +17,18 @@ const mapStateToProps = (state) => ({
 
 const BaseLayout = ({isUserLoggedIn}) => {
     return (
+        <>
         <Router>
             <Switch>
-                <Route exact path='/'>
-                    {isUserLoggedIn ? <Redirect to='/todo' component={TodoApp} /> : <Redirect to='/login' component={AuthLayout} />}
-                </Route>
+                {
+                    isUserLoggedIn ? <Route exact path='/todo' component={TodoApp} /> : <Route exact path='/login' component={AuthLayout} />
+                }
+                {
+                    isUserLoggedIn ? <Redirect from='/login' to='/todo' /> : <Redirect from='/' to='/login' />
+                }
             </Switch>
         </Router>
+        </>
     );
 };
 
