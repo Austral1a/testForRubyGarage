@@ -1,0 +1,15 @@
+$btn-color: #F78DB8;
+.btn {
+    background-color: $btn-color;
+    border: 1px solid darken($btn-color, 3%);
+    border-radius: 2px;
+    transition: all 0.4s ease-out;
+    &:hover {
+        transition: all 0.2s ease-in;
+        background-color: darken($btn-color, 12%);
+    }
+    &:active {
+        background-color: lighten($btn-color, 10%);
+        transition: all 0.2s ease-in;
+    }
+}
