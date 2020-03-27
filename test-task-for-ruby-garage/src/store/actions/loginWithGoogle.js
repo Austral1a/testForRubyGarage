@@ -1,4 +1,5 @@
 import firebase from 'firebase';
+import writeDataToDb from '../../firebase/writeDataToDbAfterLogin';
 import {LOGIN_WITH_GOOGLE_SUCCESS, LOGIN_WITH_GOOGLE_FAIL} from './action-types';
 
 export const loginWithGoogle = () => {
@@ -7,9 +8,10 @@ export const loginWithGoogle = () => {
             let provider = new firebase.auth.GoogleAuthProvider();
             provider.addScope('email');
             firebase.auth().languageCode = 'ru';
-            return firebase.auth().signInWithPopup(provider)
+            firebase.auth().signInWithPopup(provider)
                 .then((res) => {
-                    dispatch(loginWithGoogleSuccess({}));
+                    dispatch(loginWithGoogleSuccess(res.user.uid));
+                    writeDataToDb(res.user.uid, firebase);
                 })
                 .catch((error) => {
                     let errorMessage = error.message;
@@ -22,9 +24,9 @@ export const loginWithGoogle = () => {
     };
 };
 
-export const loginWithGoogleSuccess = (user) => ({
+export const loginWithGoogleSuccess = (userUid) => ({
     type: LOGIN_WITH_GOOGLE_SUCCESS,
-    user,
+    userUid,
 });
 
 export const loginWithGoogleFail = (error) => ({
