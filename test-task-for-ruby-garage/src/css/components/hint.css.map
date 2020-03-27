@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,KAAK,CAAC;EACF,UAAU,EAAE,MAAM;EAClB,UAAU,EAAE,IAAI;EAChB,OAAO,EAAE,IAAI;EACb,gBAAgB,EAAE,IAAI;CACzB",
+    "sources": [
+        "hint.scss"
+    ],
+    "names": [],
+    "file": "hint.css"
+}

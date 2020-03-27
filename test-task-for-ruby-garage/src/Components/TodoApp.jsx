@@ -1,10 +1,7 @@
-import '../css/todo.css';
 import React, {useEffect} from 'react';
 import {connect} from 'react-redux';
 import getCurrSignedInUser from '../store/actions/getCurrSignedInUser';
-import TodoHeader from './TodoHeader';
-import TodoCreateTask from './TodoCreateTask';
-
+import TodoProject from './TodoProject';
 const mapStateToProps = (state) => ({
     userUid: state.loginWithGoogleReducer.userUid,
     currUserInfo: state.getCurrSignedInUserReducer.currUser,
@@ -21,10 +18,8 @@ const TodoApp = ({userUid, currUserInfo, getCurrUser}) => {
         getCurrUser();
     }, [])
     return (
-        <div className="todo">
-        {console.log(userUid, currUserInfo)}
-            <TodoHeader />
-            <TodoCreateTask />
+        <div className="todo-list">
+           <TodoProject />
         </div>
     );
 };
