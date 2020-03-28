@@ -1,5 +1,6 @@
 import '../css/todo.css';
 import '../css/components/hint.css';
+import firebase from 'firebase';
 import React from 'react';
 import areThereProject from '../store/actions/areThereProject';
 import getProjects from '../store/actions/getProjects';
@@ -43,7 +44,7 @@ const TodoProject = ({
         Object.keys(projects).map((e, idx) => {
             return (<div key={idx} className="todo">
             <TodoHeader projectName={projects[e].name} />
-            <TodoCreateTask />
+            <TodoCreateTask src={firebase} projectId={projects[e].id} uid={currUserInfo.uid} />
             </div>)     
         }) : 
         (<>
