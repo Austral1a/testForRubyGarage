@@ -17,11 +17,11 @@ const TodoTask = ({
     
     return (
         <div className="todo-task">
-            <input type="checkbox" />
-            <h4>But a milk</h4>
+            <input className="task-done" type="checkbox" />
+            <h4 className="task-text" >But a milk</h4>
             <div className="todo-task_toolbox">
             <span className="material-icons">create</span>
-                <span className="meterial-icons">delete</span>
+            <span className="material-icons">remove_circle</span>
             </div>
         </div>
     );

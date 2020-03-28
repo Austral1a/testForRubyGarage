@@ -6,9 +6,6 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   margin: 0 auto;
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -18,5 +15,22 @@
   border-radius: 3px;
   background-color: #ebebeb;
   margin-top: .5rem;
+}
+
+.todo-task .task-done {
+  -ms-flex-preferred-size: 15%;
+      flex-basis: 15%;
+}
+
+.todo-task .task-text {
+  -ms-flex-preferred-size: 65%;
+      flex-basis: 65%;
+  text-align: left;
+}
+
+.todo-task .todo-task_toolbox {
+  text-align: center;
+  -ms-flex-preferred-size: 20%;
+      flex-basis: 20%;
 }
 /*# sourceMappingURL=todoTask.css.map */
