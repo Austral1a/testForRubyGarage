@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,IAAI,CAAC;EACD,OAAO,EAAE,IAAI;EACb,cAAc,EAAE,MAAM;EACtB,MAAM,EAAE,MAAM;EACd,UAAU,EAAE,GAAG;EACf,WAAW,EAAE,MAAM;CAOtB;;AAZD,AAMI,IANA,CAMA,KAAK,CAAC;EACF,KAAK,EAAE,KAAK;EACZ,OAAO,EAAE,UAAU;EACnB,MAAM,EAAE,iBAAiB;EACzB,aAAa,EAAE,GAAG;CACrB",
+    "sources": [
+        "form.scss"
+    ],
+    "names": [],
+    "file": "form.css"
+}

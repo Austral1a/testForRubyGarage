@@ -1,11 +1,31 @@
 $btn-color: #F78DB8;
 @mixin hover {
     transition: all 0.2s ease-in;
-    background-color: darken($btn-color, 12%);
+    background-color: darken($btn-color, 10%);
 }
 @mixin active {
     background-color: lighten($btn-color, 10%);
     transition: all 0.2s ease-in;
+}
+@mixin big-btn-wH {
+    width: 240px;
+    height: 40px;
+}
+@mixin big-btn {
+    @include big-btn-wH;
+    justify-content: center;
+    align-items: center;
+    background-color: darken($btn-color, .2%);
+    border: 0;
+    border-radius: 20px;
+    transition: all 0.2s ease-out;
+    cursor: pointer;
+    &:hover {
+        @include hover;
+    }
+    &:active {
+        @include active;
+    }
 }
 .btn {
     background-color: $btn-color;
@@ -24,23 +44,17 @@ $btn-color: #F78DB8;
     display: flex;
     margin: 0 auto;
     margin-top: 20vw;
-    width: 240px;
-    height: 40px;
-    justify-content: center;
-    align-items: center;
-    background-color: #fff;
-    border: 0;
-    border-radius: 20px;
-    transition: all 0.4s ease-out;
-    &:hover {
-        @include hover;
-    }
-    &:active {
-        @include active;
-    }
+    @include big-btn;
     span {
         padding-left: .8rem;
         font-size: 1.7rem;
         color: $btn-color;
     }
+}
+
+.btn-add-todo {
+    display: flex;
+    margin: 0 auto;
+    margin-top: 2vw;
+    @include big-btn;
 }

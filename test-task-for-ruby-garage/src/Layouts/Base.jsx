@@ -8,7 +8,6 @@ import {
     Route,
     Redirect
 } from "react-router-dom";
-
 import {connect} from 'react-redux';
 import { useEffect } from 'react';
 
@@ -23,21 +22,17 @@ const mapDispatchToProps = (dispatch) => ({
     },
 });
 
-
 const BaseLayout = ({isUserLoggedIn, isUserSignedIn, getCurrUser}) => {
     useEffect(() => {
         getCurrUser();
-    }, [])
+    }, [isUserSignedIn, isUserLoggedIn]);
+    console.log(isUserSignedIn, isUserLoggedIn)
     return (
         <Router>
             <Switch>
-                {
-                    isUserLoggedIn ? <Redirect from='/login' to='/todo' /> : null
-                }
-                {
-                    isUserSignedIn ? <Route exact path='/todo' component={ConnectedTodoApp} /> : <Route exact path='/login' component={AuthLayout} />
-                }
-                <Route path='/login' component={AuthLayout} />
+                <Route path='/' >
+                    {isUserSignedIn ? <ConnectedTodoApp /> : <AuthLayout />}
+                </Route> 
             </Switch>
         </Router>
     );

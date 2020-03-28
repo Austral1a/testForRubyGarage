@@ -1,14 +1,27 @@
-import React,{ useEffect } from 'react';
+import React from 'react';
 import {connect} from 'react-redux';
 import {loginWithGoogle} from '../../store/actions/loginWithGoogle';
+import { useEffect } from 'react';
+import getCurrSignedInUser from '../../store/actions/getCurrSignedInUser';
+
+const mapStateToProps = (state) => ({
+    isUserSignedIn: state.getCurrSignedInUserReducer.isCurrUserHolds,
+    isUserLoggedIn: state.loginWithGoogleReducer.isAuth,
+});
 
 const mapDispatchToProps = (dispatch) => ({
     loginWithGoogle: () => {
         dispatch(loginWithGoogle());
     },
+    getCurrUser: () => {
+        dispatch(getCurrSignedInUser());
+    },
 });
 
-const Login = ({loginWithGoogle}) => {
+const Login = ({loginWithGoogle, isUserSignedIn, isUserLoggedIn, getCurrUser}) => {
+    useEffect(() => {
+        getCurrUser();
+    }, [isUserSignedIn, isUserLoggedIn])
     return (
         <div>
             <button 
@@ -22,7 +35,7 @@ const Login = ({loginWithGoogle}) => {
 };
 
 const ConnectedLogin = connect(
-    null,
+    mapStateToProps,
     mapDispatchToProps
 )(Login);
 

@@ -9,7 +9,7 @@
 .btn:hover {
   -webkit-transition: all 0.2s ease-in;
   transition: all 0.2s ease-in;
-  background-color: #f35494;
+  background-color: #f45d9a;
 }
 
 .btn:active {
@@ -32,17 +32,18 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-color: #fff;
+  background-color: #f78cb7;
   border: 0;
   border-radius: 20px;
-  -webkit-transition: all 0.4s ease-out;
-  transition: all 0.4s ease-out;
+  -webkit-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+  cursor: pointer;
 }
 
 .btn-sign-in-with-google:hover {
   -webkit-transition: all 0.2s ease-in;
   transition: all 0.2s ease-in;
-  background-color: #f35494;
+  background-color: #f45d9a;
 }
 
 .btn-sign-in-with-google:active {
@@ -55,5 +56,39 @@
   padding-left: .8rem;
   font-size: 1.7rem;
   color: #F78DB8;
+}
+
+.btn-add-todo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0 auto;
+  margin-top: 2vw;
+  width: 240px;
+  height: 40px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #f78cb7;
+  border: 0;
+  border-radius: 20px;
+  -webkit-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+  cursor: pointer;
+}
+
+.btn-add-todo:hover {
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+  background-color: #f45d9a;
+}
+
+.btn-add-todo:active {
+  background-color: #fabdd6;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
 }
 /*# sourceMappingURL=btn.css.map */

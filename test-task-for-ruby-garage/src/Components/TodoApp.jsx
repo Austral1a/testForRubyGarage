@@ -16,7 +16,7 @@ const mapDispatchToProps = (dispatch) => ({
 const TodoApp = ({userUid, currUserInfo, getCurrUser}) => {
     useEffect(() => {
         getCurrUser();
-    }, [])
+    }, [userUid])
     return (
         <div className="todo-list">
            <TodoProject />

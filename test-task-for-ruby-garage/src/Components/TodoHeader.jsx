@@ -1,9 +1,9 @@
 import React from 'react';
 
-const TodoHeader = () => {
+const TodoHeader = ({projectName}) => {
     return (
         <div className="todo-header_name">
-            <h3>Project Name</h3>
+            <h3>{projectName}</h3>
         </div>
     );
 };
