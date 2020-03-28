@@ -3,7 +3,6 @@ import {connect} from 'react-redux';
 import getCurrSignedInUser from '../store/actions/getCurrSignedInUser';
 import TodoProject from './TodoProject';
 const mapStateToProps = (state) => ({
-    userUid: state.loginWithGoogleReducer.userUid,
     currUserInfo: state.getCurrSignedInUserReducer.currUser,
 });
 
@@ -13,10 +12,10 @@ const mapDispatchToProps = (dispatch) => ({
     },
 });
 
-const TodoApp = ({userUid, currUserInfo, getCurrUser}) => {
+const TodoApp = ({currUserInfo, getCurrUser}) => {
     useEffect(() => {
         getCurrUser();
-    }, [userUid])
+    }, [getCurrUser]);
     return (
         <div className="todo-list">
            <TodoProject />

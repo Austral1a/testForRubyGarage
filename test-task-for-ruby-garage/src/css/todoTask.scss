@@ -1,0 +1,12 @@
+.todo-task {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 0 auto;
+    align-items: center;
+    width: 470px;
+    height: 45px !important;
+    border-radius: 3px;
+    background-color: darken(#fff, 8%);
+    margin-top: .5rem;
+}

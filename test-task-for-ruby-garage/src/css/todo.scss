@@ -1,3 +1,8 @@
+@mixin box-shadow {
+    -webkit-box-shadow: -4px 6px 8px 1px rgba(0,0,0,0.12);
+    -moz-box-shadow: -4px 6px 8px 1px rgba(0,0,0,0.12);
+    box-shadow: -4px 6px 8px 1px rgba(0,0,0,0.12);
+}
 .todo {
     display: flex;
     flex-direction: column;
@@ -7,11 +12,8 @@
     border-radius: 3px;
     background-color: #fff;
     width: 480px;
-    height: 90px;
-    -webkit-box-shadow: -4px 6px 8px 1px rgba(0,0,0,0.12);
-    -moz-box-shadow: -4px 6px 8px 1px rgba(0,0,0,0.12);
-    box-shadow: -4px 6px 8px 1px rgba(0,0,0,0.12);
-
+    height: 85px;
+    @include box-shadow;
     .todo-header_name {
         text-align: center;
         padding: .7rem 0;
@@ -32,4 +34,8 @@
             margin-left: 1rem;
         }
     }
+}
+
+.todo-task {
+    @include box-shadow;
 }

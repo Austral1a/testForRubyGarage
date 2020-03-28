@@ -8,6 +8,7 @@ import {connect} from 'react-redux';
 import TodoHeader from './TodoHeader';
 import TodoCreateTask from './TodoCreateTask';
 import TodoAddProject from './TodoAddProject'
+import TodoTask from './TodoTask';
 import { useEffect } from 'react';
 
 const mapStateToProps = (state) => ({
@@ -41,12 +42,17 @@ const TodoProject = ({
     }, [areThereProject, isProjectExists, getProjectsError, getProjects]);
     return (
         isProjectExists ?
-        Object.keys(projects).map((e, idx) => {
-            return (<div key={idx} className="todo">
-            <TodoHeader projectName={projects[e].name} />
-            <TodoCreateTask src={firebase} projectId={projects[e].id} uid={currUserInfo.uid} />
-            </div>)     
-        }) : 
+            Object.keys(projects).map((e, idx) => {
+                return (
+                <>
+                <div key={idx} className="todo">
+                    <TodoHeader projectName={projects[e].name} />
+                    <TodoCreateTask src={firebase} projectId={projects[e].id} uid={currUserInfo.uid} />
+                </div>
+                <TodoTask />
+                </>
+                ) 
+            }) : 
         (<>
         <h3 className="hint">There are no projects yet, add one!</h3>
         <TodoAddProject userUid={currUserInfo.uid} />
