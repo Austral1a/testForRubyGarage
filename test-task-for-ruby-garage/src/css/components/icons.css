@@ -1,0 +1,12 @@
+span.material-icons {
+  color: #74B2A0;
+  -webkit-transition: all .1s ease-out;
+  transition: all .1s ease-out;
+}
+
+span.material-icons:hover {
+  -webkit-transition: all .1s ease-in;
+  transition: all .1s ease-in;
+  color: #4e8c7a;
+}
+/*# sourceMappingURL=icons.css.map */

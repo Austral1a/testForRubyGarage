@@ -1,3 +1,4 @@
+$back-color-p: #fff;
 .todo-task {
     display: flex;
     flex-direction: row;
@@ -7,7 +8,7 @@
     width: 470px;
     height: 45px !important;
     border-radius: 3px;
-    background-color: darken(#fff, 8%);
+    background-color: darken($back-color-p, 8%);
     margin-top: .5rem;
     .task-done {
         flex-basis: 15%;
@@ -17,7 +18,20 @@
         text-align: left;
     }
     .todo-task_toolbox {
+        display: none;
         text-align: center;
         flex-basis: 20%;
+        & > * {
+            padding: 0 .2rem;
+        }
+    }
+    transition: all .2s ease-out;
+    &:hover {
+        .todo-task_toolbox {
+            display: block;
+        }
+        transition: all .1s ease-in;
+        transform: scale(1.02);
+        background-color: $back-color-p;
     }
 }

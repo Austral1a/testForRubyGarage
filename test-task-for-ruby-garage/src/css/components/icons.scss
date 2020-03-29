@@ -1,0 +1,9 @@
+$toolbox-icon-color: #74B2A0;
+span.material-icons {
+    color: $toolbox-icon-color;
+    transition: all .1s ease-out;
+    &:hover {
+        transition: all .1s ease-in;
+        color: darken($toolbox-icon-color, 15%)
+    }
+}

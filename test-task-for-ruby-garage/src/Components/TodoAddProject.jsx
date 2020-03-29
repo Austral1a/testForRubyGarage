@@ -1,16 +1,15 @@
 import '../css/form.css';
-import firebase from 'firebase';
 import React, {useState} from 'react';
-import writeNewProject from '../firebase/addProjectToDb';
 import PropTypes from 'prop-types';
-
+import addProject from '../firebase/addProjectToDb';
 
 const TodoAddProject = ({userUid}) => {
     const [name, setName] = useState('');
     return (
         <form onSubmit={(e) => {
             e.preventDefault();
-            writeNewProject(userUid, name, firebase);
+            addProject(userUid, name);
+            setName('');
         }}>
             <input 
                 type="text" 

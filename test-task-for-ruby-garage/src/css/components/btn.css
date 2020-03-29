@@ -10,6 +10,7 @@
   -webkit-transition: all 0.2s ease-in;
   transition: all 0.2s ease-in;
   background-color: #f45d9a;
+  cursor: pointer;
 }
 
 .btn:active {
@@ -44,6 +45,7 @@
   -webkit-transition: all 0.2s ease-in;
   transition: all 0.2s ease-in;
   background-color: #f45d9a;
+  cursor: pointer;
 }
 
 .btn-sign-in-with-google:active {
@@ -84,11 +86,21 @@
   -webkit-transition: all 0.2s ease-in;
   transition: all 0.2s ease-in;
   background-color: #f45d9a;
+  cursor: pointer;
 }
 
 .btn-add-todo:active {
   background-color: #fabdd6;
   -webkit-transition: all 0.2s ease-in;
   transition: all 0.2s ease-in;
+}
+
+.btn-icon {
+  border: 0;
+  background-color: inherit;
+}
+
+.btn-icon:hover {
+  cursor: pointer;
 }
 /*# sourceMappingURL=btn.css.map */

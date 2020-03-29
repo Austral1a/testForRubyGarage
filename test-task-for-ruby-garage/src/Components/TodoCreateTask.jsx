@@ -4,16 +4,23 @@ import React, {useState} from 'react';
 
 const TodoCreateTask = ({src, projectId, uid}) => {
     const [name, setName] = useState('');
+    const handleClick = () => {
+        addTodoToDb(src, projectId, uid, name);
+        setName('');
+    }
     return (
         <div className="todo-header_create-task">
             <span className="material-icons">add</span>
             <input 
                 type="text"
                 required
+                value={name}
                 onChange={(e) => {
                     setName(e.target.value)
                 }} />
-            <button onClick={() => addTodoToDb(src, projectId, uid, name)} className="btn">ADD</button>
+            <button 
+            onClick={handleClick} 
+            className="btn">ADD</button>
         </div>
     );
 };

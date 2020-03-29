@@ -4,7 +4,6 @@ const getProjects = (uid) => {
     return (dispatch) => { 
         try {
             firebase.database().ref('users/' + uid + '/projects/').on('value', (snapshot) => {
-                console.log(snapshot.val());
                 dispatch(getProjectSuccess(snapshot.val()));
             });
         } catch {

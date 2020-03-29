@@ -2,6 +2,7 @@ $btn-color: #F78DB8;
 @mixin hover {
     transition: all 0.2s ease-in;
     background-color: darken($btn-color, 10%);
+    cursor: pointer;
 }
 @mixin active {
     background-color: lighten($btn-color, 10%);
@@ -57,4 +58,12 @@ $btn-color: #F78DB8;
     margin: 0 auto;
     margin-top: 2vw;
     @include big-btn;
+}
+
+.btn-icon {
+    border: 0;
+    background-color: inherit;
+    &:hover {
+        cursor: pointer;
+    }
 }

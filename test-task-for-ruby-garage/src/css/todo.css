@@ -17,9 +17,43 @@
   box-shadow: -4px 6px 8px 1px rgba(0, 0, 0, 0.12);
 }
 
+.todo:hover {
+  position: relative;
+}
+
+.todo:hover .todo-header_name > .todo-header_toolbox {
+  display: block;
+  position: absolute;
+  right: 1%;
+}
+
 .todo .todo-header_name {
   text-align: center;
   padding: .7rem 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.todo .todo-header_name h3 {
+  -ms-flex-preferred-size: 92%;
+      flex-basis: 92%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.todo .todo-header_name .todo-header_toolbox {
+  -ms-flex-preferred-size: 8%;
+      flex-basis: 8%;
+  display: none;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
 }
 
 .todo .todo-header_create-task {
