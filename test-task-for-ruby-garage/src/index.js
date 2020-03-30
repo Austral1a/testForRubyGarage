@@ -1,5 +1,8 @@
 import './css/body.css';
 import './css/general.css';
+import {
+    BrowserRouter as Router
+} from "react-router-dom";
 import React from 'react';
 import ReactDOM from 'react-dom';
 import ConnectedBaseLayout from './Layouts/Base';
@@ -23,9 +26,11 @@ firebase.initializeApp(firebaseConfig);
 
 ReactDOM.render(
   <Provider store={store}>
-      <React.StrictMode>
-        <ConnectedBaseLayout />
-      </React.StrictMode>
+    <Router>
+        <React.StrictMode>
+          <ConnectedBaseLayout />
+        </React.StrictMode>
+      </Router>
   </Provider>,
   document.getElementById('root')
 );

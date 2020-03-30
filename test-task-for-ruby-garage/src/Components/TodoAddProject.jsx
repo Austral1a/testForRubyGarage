@@ -1,6 +1,5 @@
 import '../css/form.css';
 import React, {useState} from 'react';
-import PropTypes from 'prop-types';
 import addProject from '../firebase/addProjectToDb';
 
 const TodoAddProject = ({userUid}) => {

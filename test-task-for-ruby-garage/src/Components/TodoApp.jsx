@@ -1,10 +1,8 @@
 import React, {useEffect} from 'react';
+import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import getCurrSignedInUser from '../store/actions/getCurrSignedInUser';
 import TodoProject from './TodoProject';
-const mapStateToProps = (state) => ({
-    currUserInfo: state.getCurrSignedInUserReducer.currUser,
-});
 
 const mapDispatchToProps = (dispatch) => ({
     getCurrUser: () => {
@@ -12,7 +10,7 @@ const mapDispatchToProps = (dispatch) => ({
     },
 });
 
-const TodoApp = ({currUserInfo, getCurrUser}) => {
+const TodoApp = ({getCurrUser}) => {
     useEffect(() => {
         getCurrUser();
     }, [getCurrUser]);
@@ -24,8 +22,12 @@ const TodoApp = ({currUserInfo, getCurrUser}) => {
 };
 
 const ConnectedTodoApp = connect(
-    mapStateToProps,
+    null,
     mapDispatchToProps
 )(TodoApp);
+
+ConnectedTodoApp.propTypes = {
+    getCurrUser: PropTypes.func,
+};
 
 export default ConnectedTodoApp;

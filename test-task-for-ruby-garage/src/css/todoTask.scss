@@ -57,7 +57,7 @@ $back-color-p: #fff;
         }
         .priority-medium {
             @include priority($medium: true);
-            @include priority-hover($medium: false) 
+            @include priority-hover($medium: true);
         }
         .priority-regular {
             @include priority();

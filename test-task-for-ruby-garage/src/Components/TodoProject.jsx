@@ -1,8 +1,8 @@
 import '../css/todo.css';
 import '../css/components/hint.css';
 import firebase from 'firebase';
-import delProject from '../firebase/delProject';
-import React, {useCallback, useEffect} from 'react';
+import React, {useEffect} from 'react';
+import PropTypes from 'prop-types';
 import areThereProject from '../store/actions/areThereProject';
 import getProjects from '../store/actions/getProjects';
 import areThereTasks from '../store/actions/areThereTasks';
@@ -97,5 +97,19 @@ const ConnectedTodoProject = connect(
     mapStateToProps,
     mapDispatchToProps
 )(TodoProject);
+
+ConnectedTodoProject.propTypes = {
+    currUserInfo: PropTypes.object,
+    areThereProject: PropTypes.bool, 
+    isProjectExists: PropTypes.bool,
+    getProjectsError: PropTypes.bool,
+    getProjects: PropTypes.func,
+    projects: PropTypes.object,
+    isTaskExists: PropTypes.bool,
+    tasks: PropTypes.object,
+    getTasksError: PropTypes.bool,
+    areThereTasks: PropTypes.bool,
+    getTasks: PropTypes.func,
+}
 
 export default ConnectedTodoProject;

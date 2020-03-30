@@ -64,8 +64,8 @@
 }
 
 .todo-task .todo-task_toolbox .priority-medium:hover {
-  color: #EBEBEB;
-  background-color: #EBEBEB;
+  color: #FFC559;
+  background-color: #FFC559;
   border-radius: 100%;
   -webkit-transition: all .2s ease-in;
   transition: all .2s ease-in;

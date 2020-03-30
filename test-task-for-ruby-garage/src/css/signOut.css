@@ -1,0 +1,16 @@
+.sign-out {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.sign-out button {
+  margin-top: 25px;
+  margin-right: 4vh;
+  width: 100px;
+  height: 25px;
+}
+/*# sourceMappingURL=signOut.css.map */

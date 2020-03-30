@@ -7,7 +7,6 @@ import getStatuses from '../store/actions/getTasksStatuses';
 import getPriority from '../store/actions/getTasksPriority';
 import {setTaskStatusTrue, setTaskStatusFalse} from '../firebase/setTaskStatus';
 import { useCallback } from 'react';
-//import {setPriorityToMedium, setPriorityToHigh} from '../store/actions/setPriorityTask';
 import {setPriorityToMedium, setPriorityToHigh, setPriorityToRegular} from '../firebase/setTaskPriority';
 const mapStateToProps = (state) => ({
     statuses: state.getTasksStatusesReducer.map,
@@ -21,12 +20,6 @@ const mapDispatchToProps = (dispatch) => ({
     getPriority: (uid)  => {
         dispatch(getPriority(uid));
     },
-    /* setPriorityToHigh: (uid, taskId) => {
-        dispatch(setPriorityToHigh(uid, taskId));
-    },
-    setPriorityToMedium: (uid, taskId) => {
-        dispatch(setPriorityToMedium(uid, taskId));
-    }, */
 });
 
 
@@ -37,8 +30,6 @@ const TodoTask = ({
     statuses,
     getStatuses,
     getPriority,
-   /*  setPriorityToHigh,
-    setPriorityToMedium, */
     priorities
     }) => {
     
@@ -84,7 +75,6 @@ const TodoTask = ({
                 opacity: statuses[taskId] === 'USUAL' ? 1 : .4,
                 backgroundColor: stylePriority(),
                 }}>
-                {console.log(priorities)}
             <input 
                 className="task-done" 
                 type="checkbox"
