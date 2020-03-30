@@ -1,4 +1,26 @@
 $back-color-p: #fff;
+@mixin priority-hover($high: true) {
+    &:hover {
+        @if $high {
+            background-color: #FE6868;
+            color: #FE6868;
+        } @else {
+            color: #FFC559;
+            background-color: #FFC559;
+        }
+        border-radius: 100%;
+        transition: all .2s ease-in;
+    }
+}
+@mixin priority($high: true) {
+    transition: all .2s ease-in;
+    border-radius: 100%;
+     @if $high {
+        color: red;
+    } @else {
+        color: orange;
+    }
+}
 .todo-task {
     display: flex;
     flex-direction: row;
@@ -18,12 +40,21 @@ $back-color-p: #fff;
         text-align: left;
     }
     .todo-task_toolbox {
-        display: none;
+        //display: none;
         text-align: center;
         flex-basis: 20%;
         & > * {
             padding: 0 .2rem;
         }
+        .priority-high {
+            @include priority($high: true);
+            @include priority-hover($high: true);
+        }
+        .priority-medium {
+            @include priority($high: false);
+            @include priority-hover($high: false) 
+        }
+        
     }
     transition: all .2s ease-out;
     &:hover {

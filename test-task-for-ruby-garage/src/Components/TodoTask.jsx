@@ -61,6 +61,8 @@ const TodoTask = ({
                     }}
                 className="task-text">{taskName}</h4>
             <div className="todo-task_toolbox">
+                <button className="btn-icon"><span class="material-icons priority-high">crop_16_9</span></button>
+                <button className="btn-icon"><span class="material-icons priority-medium">crop_16_9</span></button>
                 <button onClick={() => delTask(taskId, uid)} className="btn-icon"><span className="material-icons">remove_circle</span></button>
             </div>
         </div>

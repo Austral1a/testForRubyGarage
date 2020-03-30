@@ -31,7 +31,6 @@
 }
 
 .todo-task .todo-task_toolbox {
-  display: none;
   text-align: center;
   -ms-flex-preferred-size: 20%;
       flex-basis: 20%;
@@ -39,6 +38,36 @@
 
 .todo-task .todo-task_toolbox > * {
   padding: 0 .2rem;
+}
+
+.todo-task .todo-task_toolbox .priority-high {
+  -webkit-transition: all .2s ease-in;
+  transition: all .2s ease-in;
+  border-radius: 100%;
+  color: red;
+}
+
+.todo-task .todo-task_toolbox .priority-high:hover {
+  background-color: #FE6868;
+  color: #FE6868;
+  border-radius: 100%;
+  -webkit-transition: all .2s ease-in;
+  transition: all .2s ease-in;
+}
+
+.todo-task .todo-task_toolbox .priority-medium {
+  -webkit-transition: all .2s ease-in;
+  transition: all .2s ease-in;
+  border-radius: 100%;
+  color: orange;
+}
+
+.todo-task .todo-task_toolbox .priority-medium:hover {
+  color: #FFC559;
+  background-color: #FFC559;
+  border-radius: 100%;
+  -webkit-transition: all .2s ease-in;
+  transition: all .2s ease-in;
 }
 
 .todo-task:hover {
