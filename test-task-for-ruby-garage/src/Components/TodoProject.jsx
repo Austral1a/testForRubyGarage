@@ -2,7 +2,7 @@ import '../css/todo.css';
 import '../css/components/hint.css';
 import firebase from 'firebase';
 import delProject from '../firebase/delProject';
-import React from 'react';
+import React, {useCallback, useEffect} from 'react';
 import areThereProject from '../store/actions/areThereProject';
 import getProjects from '../store/actions/getProjects';
 import areThereTasks from '../store/actions/areThereTasks';
@@ -11,8 +11,7 @@ import {connect} from 'react-redux';
 import TodoHeader from './TodoHeader';
 import TodoCreateTask from './TodoCreateTask';
 import TodoAddProject from './TodoAddProject'
-import TodoTask from './TodoTask';
-import { useEffect } from 'react';
+import ConnectedTodoTask from './TodoTask';
 
 const mapStateToProps = (state) => ({
     currUserInfo: state.getCurrSignedInUserReducer.currUser,
@@ -38,7 +37,7 @@ const mapDispatchToProps = (dispatch) => ({
     },
     getTasks: (uid) => {
         dispatch(getTasks(uid));
-    }
+    },
 })
 
 const TodoProject = ({
@@ -52,7 +51,7 @@ const TodoProject = ({
     tasks,
     getTasksError,
     areThereTasks,
-    getTasks
+    getTasks,
 }) => {
     useEffect(() => {
         areThereProject(currUserInfo.uid);
@@ -69,7 +68,7 @@ const TodoProject = ({
         return tasks ? (
             Object.keys(tasks).map((e, idx) => {
                 if(project_id === tasks[e].project_id) {
-                    return <TodoTask key={idx} taskName={tasks[e].name} taskId={tasks[e].id} uid={currUserInfo.uid} />
+                    return <ConnectedTodoTask key={idx} taskName={tasks[e].name} taskId={tasks[e].id} uid={currUserInfo.uid} />
                 }
             }))
             : null;
