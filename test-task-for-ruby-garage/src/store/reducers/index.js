@@ -6,6 +6,7 @@ import getProjectsReducer from './getProjectsReducer';
 import getTasksReducer from './getTasksReducer';
 import areThereTasksReducer from './areThereTasksReducer';
 import getTasksStatusesReducer from './getTasksStatusesReducer';
+import getTasksPriorityReducer from './getTasksPriorityReducer';
 const rootReducer = combineReducers({
     loginWithGoogleReducer,
     getCurrSignedInUserReducer,
@@ -13,7 +14,8 @@ const rootReducer = combineReducers({
     getProjectsReducer,
     getTasksReducer,
     areThereTasksReducer,
-    getTasksStatusesReducer
+    getTasksStatusesReducer,
+    getTasksPriorityReducer
 });
 
 export default rootReducer;
