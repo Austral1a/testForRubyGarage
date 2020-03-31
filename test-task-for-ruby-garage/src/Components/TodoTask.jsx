@@ -91,7 +91,7 @@ const TodoTask = ({
                     }}
                 className="task-text">{taskName}</h4>
             <div className="todo-task_toolbox_set-deadline">
-                <DeadlinePicker />
+                <DeadlinePicker uid={uid} taskId={taskId} />
             </div>
             <div className="todo-task_toolbox">
                 <div className="todo-task_toolbox_set-priority">
