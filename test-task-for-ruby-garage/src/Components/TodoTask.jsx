@@ -1,6 +1,9 @@
 import '../css/todoTask.css';
 import '../css/components/icons.css';
+import DateFnsUtils from '@date-io/date-fns';
+import {MuiPickersUtilsProvider} from '@material-ui/pickers';
 import delTask from '../firebase/delTask';
+import DeadlinePicker from './TodoTaskDeadlinePicker';
 import React, {useEffect} from 'react';
 import {connect} from 'react-redux';
 import getStatuses from '../store/actions/getTasksStatuses';
@@ -69,6 +72,7 @@ const TodoTask = ({
     };
 
     return (
+        <MuiPickersUtilsProvider utils={DateFnsUtils}>
         <div 
             className="todo-task" 
             style={{
@@ -86,13 +90,20 @@ const TodoTask = ({
                     textDecoration: statuses[taskId] === 'USUAL' ? 'none' : 'line-through'
                     }}
                 className="task-text">{taskName}</h4>
+            <div className="todo-task_toolbox_set-deadline">
+                <DeadlinePicker />
+            </div>
             <div className="todo-task_toolbox">
-                <button onClick={() => setPriorityToRegular(uid, taskId)} className="btn-icon"><span className="material-icons priority-regular">crop_16_9</span></button>
-                <button onClick={() => setPriorityToHigh(uid, taskId)} className="btn-icon"><span className="material-icons priority-high">crop_16_9</span></button>
-                <button onClick={() => setPriorityToMedium(uid, taskId)} className="btn-icon"><span className="material-icons priority-medium">crop_16_9</span></button>
+                <div className="todo-task_toolbox_set-priority">
+                    <button onClick={() => setPriorityToRegular(uid, taskId)} className="btn-icon"><span className="material-icons priority-regular">crop_16_9</span></button>
+                    <button onClick={() => setPriorityToHigh(uid, taskId)} className="btn-icon"><span className="material-icons priority-high">crop_16_9</span></button>
+                    <button onClick={() => setPriorityToMedium(uid, taskId)} className="btn-icon"><span className="material-icons priority-medium">crop_16_9</span></button>
+                </div>
                 <button onClick={() => delTask(taskId, uid)} className="btn-icon"><span className="material-icons">remove_circle</span></button>
+                {/* <button className="btn-icon"><span className="material-icons deadline">schedule</span></button> */}
             </div>
         </div>
+        </MuiPickersUtilsProvider>
     );
 };
 

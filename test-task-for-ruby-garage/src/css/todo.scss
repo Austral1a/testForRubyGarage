@@ -58,3 +58,9 @@
 .todo-task {
     @include box-shadow;
 }
+
+@media screen and (max-width: 468px) {
+    .todo {
+        width: 310px;
+    }
+}

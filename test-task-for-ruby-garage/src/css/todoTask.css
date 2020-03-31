@@ -11,7 +11,7 @@
       -ms-flex-align: center;
           align-items: center;
   width: 470px;
-  height: 45px !important;
+  height: 57px !important;
   border-radius: 3px;
   background-color: #ebebeb;
   margin-top: .5rem;
@@ -32,13 +32,17 @@
 
 .todo-task .todo-task_toolbox {
   display: none;
-  text-align: center;
   -ms-flex-preferred-size: 30%;
       flex-basis: 30%;
+  text-align: center;
 }
 
 .todo-task .todo-task_toolbox > * {
   padding: 0 .2rem;
+}
+
+.todo-task .todo-task_toolbox .todo-task_set-priority {
+  border: 1px solid #fff;
 }
 
 .todo-task .todo-task_toolbox .priority-high {
@@ -75,7 +79,7 @@
   -webkit-transition: all .2s ease-in;
   transition: all .2s ease-in;
   border-radius: 100%;
-  color: #EBEBEB;
+  color: #fff;
 }
 
 .todo-task .todo-task_toolbox .priority-regular:hover {
@@ -84,6 +88,24 @@
   border-radius: 100%;
   -webkit-transition: all .2s ease-in;
   transition: all .2s ease-in;
+}
+
+.todo-task .todo-task_toolbox .deadline {
+  -webkit-transition: all .2s ease-in;
+  transition: all .2s ease-in;
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  border: none;
+}
+
+.todo-task .todo-task_toolbox .deadline:hover {
+  border-radius: 100%;
+  -webkit-transition: all .2s ease-in;
+  transition: all .2s ease-in;
+  background-color: yellow;
+  color: yellow;
+  cursor: pointer;
 }
 
 .todo-task:hover {
@@ -96,5 +118,22 @@
 
 .todo-task:hover .todo-task_toolbox {
   display: block;
+}
+
+@media screen and (max-width: 468px) {
+  .todo-task {
+    width: 300px;
+  }
+  .todo-task {
+    -ms-flex-preferred-size: 40%;
+        flex-basis: 40%;
+  }
+  .todo-task_toolbox {
+    display: none;
+    text-align: center;
+    width: 100%;
+    -ms-flex-preferred-size: 50%;
+        flex-basis: 50%;
+  }
 }
 /*# sourceMappingURL=todoTask.css.map */

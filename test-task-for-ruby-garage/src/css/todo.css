@@ -87,4 +87,10 @@
   -webkit-box-shadow: -4px 6px 8px 1px rgba(0, 0, 0, 0.12);
   box-shadow: -4px 6px 8px 1px rgba(0, 0, 0, 0.12);
 }
+
+@media screen and (max-width: 468px) {
+  .todo {
+    width: 310px;
+  }
+}
 /*# sourceMappingURL=todo.css.map */
