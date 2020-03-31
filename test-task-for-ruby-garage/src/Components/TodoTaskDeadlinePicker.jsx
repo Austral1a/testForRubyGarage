@@ -1,14 +1,31 @@
 import {DatePicker} from '@material-ui/pickers';
 import setDeadline from '../firebase/setTaskDeadline';
-import React, {useState} from 'react';
-import { useEffect } from 'react';
+import {connect} from 'react-redux';
+import React, {useState, useCallback, useEffect} from 'react';
+import getDeadlines from '../store/actions/getTasksDeadlines';
 
-const DeadlinePicker = ({uid, taskId}) => {
+const mapStateToProps = (state) => ({
+    deadlines: state.getTasksDeadlinesReducer.map,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+    getDeadlines: (uid) => {
+        dispatch(getDeadlines(uid));
+    },
+})
+
+const DeadlinePicker = ({uid, taskId, deadlines, getDeadlines}) => {
     const [isOpen, setIsOpen] = useState(false);
-    const [selectedDate, handleDateChange] = useState(new Date());
+    const memoGetDeadlines = useCallback(
+        () => {
+            getDeadlines(uid);
+        },
+        [uid]
+    );
+
     useEffect(() => {
-        setDeadline(uid, taskId, selectedDate);
-    }, [selectedDate, taskId]);
+        memoGetDeadlines();
+    }, [memoGetDeadlines, deadlines[taskId]]);
     return (
         <>
         <button className="btn-icon" onClick={() => setIsOpen(true)}></button>
@@ -18,11 +35,16 @@ const DeadlinePicker = ({uid, taskId}) => {
             onOpen={() => setIsOpen(true)}
             onClose={() => setIsOpen(false)}
             label="Deadline"
-            value={selectedDate}
-            onChange={handleDateChange}
+            value={deadlines[taskId]}
+            onChange={(e) => setDeadline(uid, taskId, e.toISOString())}
         />
         </>
     )
 };
 
-export default DeadlinePicker;
+const ConnectedDeadlinePicker = connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(DeadlinePicker);
+
+export default ConnectedDeadlinePicker;

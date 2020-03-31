@@ -100,7 +100,6 @@ const TodoTask = ({
                     <button onClick={() => setPriorityToMedium(uid, taskId)} className="btn-icon"><span className="material-icons priority-medium">crop_16_9</span></button>
                 </div>
                 <button onClick={() => delTask(taskId, uid)} className="btn-icon"><span className="material-icons">remove_circle</span></button>
-                {/* <button className="btn-icon"><span className="material-icons deadline">schedule</span></button> */}
             </div>
         </div>
         </MuiPickersUtilsProvider>
