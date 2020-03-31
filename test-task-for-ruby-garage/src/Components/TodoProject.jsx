@@ -1,5 +1,4 @@
 import '../css/todo.css';
-import '../css/components/hint.css';
 import firebase from 'firebase';
 import React, {useEffect} from 'react';
 import PropTypes from 'prop-types';
@@ -87,7 +86,7 @@ const TodoProject = ({
                     {renderTasks(projects[e].id)}
                     </React.Fragment>
                     ) 
-                }) : <h3 className="hint">There are no projects yet, add one!</h3>}
+                }) : null}
             <TodoAddProject userUid={currUserInfo.uid} />
         </>
     );

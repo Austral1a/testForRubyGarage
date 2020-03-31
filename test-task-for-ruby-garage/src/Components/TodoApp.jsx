@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import getCurrSignedInUser from '../store/actions/getCurrSignedInUser';
-import TodoProject from './TodoProject';
+import ConnectedTodoProject from './TodoProject';
 
 const mapDispatchToProps = (dispatch) => ({
     getCurrUser: () => {
@@ -16,7 +16,7 @@ const TodoApp = ({getCurrUser}) => {
     }, [getCurrUser]);
     return (
         <div className="todo-list">
-           <TodoProject />
+           <ConnectedTodoProject />
         </div>
     );
 };
