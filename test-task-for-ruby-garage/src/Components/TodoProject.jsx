@@ -44,21 +44,6 @@ const mapDispatchToProps = (dispatch) => ({
     getIsChangeNameOpen: (uid) => {
         dispatch(getIsChangeNameOpen(uid));
     },
-    /* setChangeNameTrue: (map) => {
-        dispatch(setChangeNameTrue(map));
-    },
-    setChangeNameFalse: (map) => {
-        dispatch(setChangeNameFalse(map));
-    },
-    getIsChangeNameOpen: (uid) => {
-        dispatch(getIsChangeNameOpen(uid));
-    }, */
-    /* setChangeNameOpenProjectsTrue: (projectId) => {
-        dispatch(setChangeNameOpenProjectsTrue(projectId));
-    },
-    setChangeNameOpenProjectsFalse: (projectId) => {
-        dispatch(setChangeNameOpenProjectsFalse(projectId));
-    } */
 });
 
 const TodoProject = ({
@@ -101,7 +86,7 @@ const TodoProject = ({
         return tasks ? (
             Object.keys(tasks).map((e, idx) => {
                 if(project_id === tasks[e].project_id) {
-                    return <ConnectedTodoTask key={idx} taskName={tasks[e].name} taskId={tasks[e].id} uid={currUserInfo.uid} />
+                    return <ConnectedTodoTask taskPrevName={tasks[e].name} key={idx} taskName={tasks[e].name} taskId={tasks[e].id} uid={currUserInfo.uid} />
                 }
             }))
             : null;
@@ -109,7 +94,6 @@ const TodoProject = ({
 
     return (
         <>
-        {console.log(isOpen)}
             {isProjectExists && projects ?
                 Object.keys(projects).map((e, idx) => {
                     return (
