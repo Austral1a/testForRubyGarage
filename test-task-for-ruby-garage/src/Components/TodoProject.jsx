@@ -1,6 +1,7 @@
 import '../css/todo.css';
+import '../css/changeName.css';
 import firebase from 'firebase';
-import React, {useEffect} from 'react';
+import React, {useEffect, useCallback} from 'react';
 import PropTypes from 'prop-types';
 import areThereProject from '../store/actions/areThereProject';
 import getProjects from '../store/actions/getProjects';
@@ -11,6 +12,8 @@ import TodoHeader from './TodoHeader';
 import TodoCreateTask from './TodoCreateTask';
 import TodoAddProject from './TodoAddProject'
 import ConnectedTodoTask from './TodoTask';
+import ChangeName from './Other/ChangeName';
+import getIsChangeNameOpen from '../store/actions/getProjectsIsChangeNameOpen';
 
 const mapStateToProps = (state) => ({
     currUserInfo: state.getCurrSignedInUserReducer.currUser,
@@ -22,6 +25,7 @@ const mapStateToProps = (state) => ({
     isTaskExists: state.areThereTasksReducer.areThere,
     tasks: state.getTasksReducer.tasks,
     getTasksError: state.getTasksReducer.error,
+    isOpen: state.getProjectChangeNameOpenReducer.map,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -37,7 +41,25 @@ const mapDispatchToProps = (dispatch) => ({
     getTasks: (uid) => {
         dispatch(getTasks(uid));
     },
-})
+    getIsChangeNameOpen: (uid) => {
+        dispatch(getIsChangeNameOpen(uid));
+    },
+    /* setChangeNameTrue: (map) => {
+        dispatch(setChangeNameTrue(map));
+    },
+    setChangeNameFalse: (map) => {
+        dispatch(setChangeNameFalse(map));
+    },
+    getIsChangeNameOpen: (uid) => {
+        dispatch(getIsChangeNameOpen(uid));
+    }, */
+    /* setChangeNameOpenProjectsTrue: (projectId) => {
+        dispatch(setChangeNameOpenProjectsTrue(projectId));
+    },
+    setChangeNameOpenProjectsFalse: (projectId) => {
+        dispatch(setChangeNameOpenProjectsFalse(projectId));
+    } */
+});
 
 const TodoProject = ({
     currUserInfo, 
@@ -51,7 +73,18 @@ const TodoProject = ({
     getTasksError,
     areThereTasks,
     getTasks,
+    isOpen,
+    getIsChangeNameOpen,
+
 }) => {
+
+    const memoGetIsChangeNameOpen = useCallback(
+        () => {
+            getIsChangeNameOpen(currUserInfo.uid);
+        },
+        [currUserInfo]
+    );
+
     useEffect(() => {
         areThereProject(currUserInfo.uid);
         areThereTasks(currUserInfo.uid);
@@ -60,8 +93,9 @@ const TodoProject = ({
         };
         if(isTaskExists && !getTasksError) {
             getTasks(currUserInfo.uid);
-        }
-    }, [areThereProject, isProjectExists, getProjectsError, getProjects, getTasks, isTaskExists, getTasksError]);
+        };
+        memoGetIsChangeNameOpen();
+    }, [areThereProject, isProjectExists, getProjectsError, getProjects, getTasks, isTaskExists, getTasksError, memoGetIsChangeNameOpen]);
 
     const renderTasks = (project_id) => {
         return tasks ? (
@@ -75,13 +109,17 @@ const TodoProject = ({
 
     return (
         <>
+        {console.log(isOpen)}
             {isProjectExists && projects ?
                 Object.keys(projects).map((e, idx) => {
                     return (
                     <React.Fragment key={idx}>
                     <div className="todo">
-                        <TodoHeader projectName={projects[e].name} projectId={projects[e].id} tasks={tasks} uid={currUserInfo.uid} />
-                        <TodoCreateTask src={firebase} projectId={projects[e].id} uid={currUserInfo.uid} />
+                    {!isOpen[projects[e].id] ?
+                        <>
+                            <TodoHeader isOpen={isOpen} uid={currUserInfo.uid} projectName={projects[e].name} projectId={projects[e].id} tasks={tasks} uid={currUserInfo.uid} />
+                            <TodoCreateTask src={firebase} projectId={projects[e].id} uid={currUserInfo.uid} />
+                        </>: <ChangeName uid={currUserInfo.uid} projectId={projects[e].id} projectPrevName={projects[e].name} />}
                     </div>
                     {renderTasks(projects[e].id)}
                     </React.Fragment>

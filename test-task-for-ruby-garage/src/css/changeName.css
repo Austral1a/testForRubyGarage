@@ -1,0 +1,44 @@
+.change-name-wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.change-name-wrap input {
+  width: 40%;
+  border: 1px solid #F78DB8;
+  border-radius: 2px;
+  padding: .5rem 1rem;
+  -ms-flex-preferred-size: 60%;
+      flex-basis: 60%;
+}
+
+.change-name-wrap .btn-change-name {
+  -ms-flex-preferred-size: 20%;
+      flex-basis: 20%;
+  margin-left: 1rem;
+  height: 2rem;
+}
+
+.change-name-wrap .btn-close {
+  -webkit-box-pack: end !important;
+      -ms-flex-pack: end !important;
+          justify-content: flex-end !important;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+/*# sourceMappingURL=changeName.css.map */

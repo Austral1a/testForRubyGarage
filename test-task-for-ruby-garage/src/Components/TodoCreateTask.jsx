@@ -8,6 +8,7 @@ const TodoCreateTask = ({src, projectId, uid}) => {
     const handleClick = () => {
         if (!textInputValidator(name)) {
             addTodoToDb(src, projectId, uid, name);
+            setName('');
         }
     };
     return (
