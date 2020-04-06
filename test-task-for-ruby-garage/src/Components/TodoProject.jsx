@@ -47,8 +47,8 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 const TodoProject = ({
-    currUserInfo, 
-    areThereProject, 
+    currUserInfo,
+    areThereProject,
     isProjectExists,
     getProjectsError,
     getProjects,
@@ -102,10 +102,10 @@ const TodoProject = ({
                     {!isOpen[projects[e].id] ?
                         <>
                             <TodoHeader isOpen={isOpen} uid={currUserInfo.uid} projectName={projects[e].name} projectId={projects[e].id} tasks={tasks} uid={currUserInfo.uid} />
-                            <TodoCreateTask src={firebase} projectId={projects[e].id} uid={currUserInfo.uid} />
+                        <TodoCreateTask src={firebase} projectId={projects[e].id} uid={currUserInfo.uid} />
                         </>: <ChangeName uid={currUserInfo.uid} projectId={projects[e].id} projectPrevName={projects[e].name} />}
                     </div>
-                    {renderTasks(projects[e].id)}
+                        {renderTasks(projects[e].id)}
                     </React.Fragment>
                     ) 
                 }) : null}
